@@ -81,20 +81,20 @@ char *_fullpathbuffer(char **av, char *PATH, char *copy)
 	{
 		toklen = _strlen(tok);
 		if (tok[toklen + 1] == ':')
-	}
-		if (stat(av[0], &h) == 0)
 		{
-			fullpathbuffer = av[0];
-			fullpathflag = 1;
-			break;
+			if (stat(av[0], &h) == 0)
+			{
+				fullpathbuffer = av[0];
+				fullpathflag = 1;
+				break;
+			}
 		}
-	}
 	}
 	z++;
 	tok = strtok(NULL, ":");
 	}
 	if (fullpathflag == 0)
-	fullpathbuffer = av[0];
+		fullpathbuffer = av[0];
 	free(copy);
 	return (fullpathbuffer);
 }

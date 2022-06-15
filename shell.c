@@ -30,11 +30,11 @@ int main(void)
 			}
 			fullpathbuffer = _fullpathbuffer(av, PATH, copy);
 			if (checkbuiltins(av, buffer, exitstatus) == 1)
-			continue;
+				continue;
 			exitstatus = _forkprocess(av, buffer, fullpathbuffer);
 		}
 		else
-		free(buffer);
+			free(buffer);
 	}
 	return (0);
 }
